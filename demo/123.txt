@@ -1,2 +1,4 @@
-When you open this file, you will find a new world
+﻿When you open this file, you will find a new world
 这条记录是从网站上直接添加的
+
+从本地添加
