@@ -1,0 +1,7 @@
+i)	On GitHub, navigate to the main page of the repository
+ii)  reason of the update
+ delete the reference
+ update <refname> not the one it points to
+ stdin has NUL-terminated arguments
+ read updates from stdin
+ create a reflog
