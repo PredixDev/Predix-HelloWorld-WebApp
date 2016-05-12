@@ -7,7 +7,7 @@
 
 applications:
   - name: hello-world-app # Step 1: Change your application name
-    buildpack: predix_openresty_buildpack
+    buildpack: staticfile_buildpack 
     #path: dist
     memory: 64M
     stack: cflinuxfs2
