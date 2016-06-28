@@ -6,7 +6,7 @@
 #  Step 2 - After you have your application running you can bind to the services below as described on predix.io
 
 applications:
-  - name: hello-world-app # Step 1: Change your application name
+  - name: Predix-HelloWorld-WebApp-<YourAppName> # Step 1: Change your application name
     buildpack: staticfile_buildpack 
     #path: dist
     memory: 64M
