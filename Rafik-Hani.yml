@@ -1,0 +1,21 @@
+---
+#
+#  A basic hello world application
+#  This application, and steps to deploy are described in full in the getting started guide on predix.io
+#  Step 1 is to change your application name, save, exit, and cf push
+#  Step 2 - After you have your application running you can bind to the services below as described on predix.io
+
+applications:
+  - name: hello-world-app # Step 1: Change your application name
+    buildpack: predix_openresty_buildpack
+    #path: dist
+    memory: 64M
+    stack: cflinuxfs2
+
+    # Step 2: Bind services and configure environment variables as described on predix.io
+    #services:
+    #        - my_redis_instance # change this to your redis service instance name
+    #        - my_viewsvc_instance # change this to your view service instance name
+    #env:
+    #  UAA_SERVER_URL: <my-UAA-URL>
+    #  REDIS: redis-<num>
