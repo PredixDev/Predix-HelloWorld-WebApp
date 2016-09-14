@@ -9,7 +9,7 @@ applications:
   - name: Predix-HelloWorld-WebApp-<YourAppName> # Step 1: Change your application name
     buildpack: staticfile_buildpack 
     #path: dist
-    memory: 64M
+    memory: 256M
     stack: cflinuxfs2
 
     # Later, to Bind to services, uncomment the section below and enter the service name that you gave, e.g.
