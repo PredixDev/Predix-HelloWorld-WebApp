@@ -1,0 +1,11 @@
+{
+  "name": "Predix-HelloWorld-WebApp",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+  },
+  "author": "devrel",
+  "license": "n/a",
+  "devDependencies": {
+  }
+}
