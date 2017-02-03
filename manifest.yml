@@ -8,15 +8,13 @@
 applications:
   - name: Predix-HelloWorld-WebApp-<YourAppName> # Step 1: Change your application name
     buildpack: staticfile_buildpack 
-    #path: dist
     memory: 256M
     stack: cflinuxfs2
 
     # Later, to Bind to services, uncomment the section below and enter the service name that you gave, e.g.
     #services:
-    #        - my_redis_instance # change this to your redis service instance name
-    #        - my_viewsvc_instance # change this to your view service instance name
+    # - my_redis_instance # change this to your redis service instance name
+
     # You may set environment variables that your code will read in, e.g.
     #env:
-    #  UAA_SERVER_URL: <my-UAA-URL>
-    #  REDIS: redis-<num>
+    #  MY_ENV_VARIABLE: my-value
