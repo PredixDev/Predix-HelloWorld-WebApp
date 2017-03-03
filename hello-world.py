@@ -86,7 +86,7 @@ if hostname == "predix-devbox" :
 			raw_input("Press Enter to continue...")
 			statementStatus  = spcall("reset", shell=True)
 		else :
-			system.exit("Sorry, I did not understand. To restart the script enter: python " + turorialFile + ".py ")
+			sys.exit("Sorry, I did not understand. To restart the script enter: python " + turorialFile + ".py ")
 	elif choice == "2" :
 		print("Okay, we'll put your work in /predix/dropbox in case you change your mind.")
 		print("To launch the Dropbox daemon enter: ./predix/.dropbox-dist/dropboxd")
@@ -94,7 +94,7 @@ if hostname == "predix-devbox" :
 		raw_input("Press Enter to continue...")
 		statementStatus  = spcall("reset", shell=True)
 	else :
-		system.exit("Sorry, I did not understand. To restart the script enter: python " + turorialFile + ".py ")
+		sys.exit("Sorry, I did not understand. To restart the script enter: python " + turorialFile + ".py ")
 
 print ("$ Welcome to Predix")
 print ("$ Would you to like me to walk you through " + tutorialName + "?")
@@ -109,7 +109,7 @@ elif choice == "2" :
 	print("")
 	sys.exit()
 else :
-	system.exit("Sorry, I did not understand. To restart the script enter: python " + tutorialFile + ".py ")
+	sys.exit("Sorry, I did not understand. To restart the script enter: python " + tutorialFile + ".py ")
 	print("")
 
 time.sleep(1)
@@ -157,7 +157,7 @@ if not "Predix" in result :
     elif system == "Linux" :
         statementStatus  = spcall("cf install-plugin https://github.com/PredixDev/cf-predix/releases/download/1.0.0/predix_linux64", shell=True)
     else :
-        system.exit("sorry, I did not understand")
+        sys.exit("sorry, I did not understand")
 print("Success, you have the Predix CLI")
 print("")
 time.sleep(1.5)
