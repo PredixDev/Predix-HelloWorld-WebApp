@@ -26,19 +26,16 @@ def call(cmd):
 	if "|" in cmd:
 		cmd_parts = cmd.split('|')
 	else:
-		cmd_parts = []
-		cmd_parts.append(cmd)
-	i = 0
-	p = {}
+		cmd_parts = [cmd]
+	p = []
 	for cmd_part in cmd_parts:
 		#print(cmd_part)
 		cmd_part = cmd_part.strip()
-		if i == 0:
-		  p[i]=Popen(shlex.split(cmd_part),stdin=None, stdout=PIPE, stderr=PIPE)
+		if len(p):
+		  p.append(Popen(shlex.split(cmd_part), stdin=p[-1].stdout, stdout=PIPE, stderr=PIPE))
 		else:
-		  p[i]=Popen(shlex.split(cmd_part),stdin=p[i-1].stdout, stdout=PIPE, stderr=PIPE)
-		i = i +1
-	(output, err) = p[i-1].communicate()
+		  p.append(Popen(shlex.split(cmd_part), stdin=None, stdout=PIPE, stderr=PIPE))
+	(output, err) = p[-1].communicate()
 	exit_code = p[0].wait()
 
 	return str(output).strip(), str(err), exit_code
