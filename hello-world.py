@@ -1,6 +1,4 @@
-import subprocess
-from subprocess import Popen
-from subprocess import PIPE
+from subprocess import call as spcall, Popen, PIPE
 import sys
 import shlex
 import time
@@ -48,9 +46,9 @@ def call(cmd):
 """"""""""""""""" Main program starts here """""""""""""""""
 system = platform.system()
 if ( system == "Windows"):
-	statementStatus  = subprocess.call("cls", shell=True)
+	statementStatus  = spcall("cls", shell=True)
 else:
-	statementStatus  = subprocess.call("reset", shell=True)
+	statementStatus  = spcall("reset", shell=True)
 
 import os
 hostname = os.uname()[1]
@@ -74,19 +72,19 @@ if hostname == "predix-devbox" :
 		choice = raw_input("$")
 		if choice == "1" :
 			dropbox=True
-			statementStatus  = subprocess.call("killall -q dropbox", shell=True)
-			statementStatus  = subprocess.call("./.dropbox-dist/dropboxd&", shell=True)
+			statementStatus  = spcall("killall -q dropbox", shell=True)
+			statementStatus  = spcall("./.dropbox-dist/dropboxd&", shell=True)
 			print("Dropbox daemon started")
 			print("")
 			raw_input("Press Enter to continue...")
-			statementStatus  = subprocess.call("reset", shell=True)
+			statementStatus  = spcall("reset", shell=True)
 		elif choice == "2" :
 			print("Okay, we won't start the dropbox daemon.")
 			print("We'll put your work in /predix/dropbox in case you change your mind.")
 			print("To launch the Dropbox daemon enter: ./predix/.dropbox-dist/dropboxd")
 			print("")
 			raw_input("Press Enter to continue...")
-			statementStatus  = subprocess.call("reset", shell=True)
+			statementStatus  = spcall("reset", shell=True)
 		else :
 			system.exit("Sorry, I did not understand. To restart the script enter: python " + turorialFile + ".py ")
 	elif choice == "2" :
@@ -94,7 +92,7 @@ if hostname == "predix-devbox" :
 		print("To launch the Dropbox daemon enter: ./predix/.dropbox-dist/dropboxd")
 		print("")
 		raw_input("Press Enter to continue...")
-		statementStatus  = subprocess.call("reset", shell=True)
+		statementStatus  = spcall("reset", shell=True)
 	else :
 		system.exit("Sorry, I did not understand. To restart the script enter: python " + turorialFile + ".py ")
 
@@ -153,11 +151,11 @@ result, err, exitcode=call('cf plugins')
 if not "Predix" in result :
     print("installing the Predix plugin for the Cloud Foundry cli")
     if system == "Windows" :
-        statementStatus  = subprocess.call("cf install-plugin https://github.com/PredixDev/cf-predix/releases/download/1.0.0/predix_win64.exe", shell=True)
+        statementStatus  = spcall("cf install-plugin https://github.com/PredixDev/cf-predix/releases/download/1.0.0/predix_win64.exe", shell=True)
     elif system == "Darwin" :
-        statementStatus  = subprocess.call("cf install-plugin https://github.com/PredixDev/cf-predix/releases/download/1.0.0/predix_osx", shell=True)
+        statementStatus  = spcall("cf install-plugin https://github.com/PredixDev/cf-predix/releases/download/1.0.0/predix_osx", shell=True)
     elif system == "Linux" :
-        statementStatus  = subprocess.call("cf install-plugin https://github.com/PredixDev/cf-predix/releases/download/1.0.0/predix_linux64", shell=True)
+        statementStatus  = spcall("cf install-plugin https://github.com/PredixDev/cf-predix/releases/download/1.0.0/predix_linux64", shell=True)
     else :
         system.exit("sorry, I did not understand")
 print("Success, you have the Predix CLI")
@@ -169,7 +167,7 @@ print("Let's see if you need to login in to the Predix Cloud")
 result, err, exitcode=call('cf target')
 if "Not logged in" in result:
     print("Let's log in to Cloud Foundry")
-    statementStatus  = subprocess.call("cf predix", shell=True)
+    statementStatus  = spcall("cf predix", shell=True)
     if statementStatus == 1 :
     	print("Error logging in to CF")
     print("")
@@ -186,17 +184,17 @@ print(system)
 if system == "Windows" :
 	if os.path.exists(gitRepo):
 		os.system("rmdir /S /Q " + gitRepo)
-	statementStatus  = subprocess.call('git clone https://github.com/PredixDev/' + gitRepo + '.git', shell=True)
+	statementStatus  = spcall('git clone https://github.com/PredixDev/' + gitRepo + '.git', shell=True)
 elif system == "Darwin" :
 	if os.path.exists(gitRepo):
-		statementStatus  = subprocess.call("rm -rf " + gitRepo)
-	statementStatus  = subprocess.call('git clone https://github.com/PredixDev/' + gitRepo + '.git', shell=True)
+		statementStatus  = spcall("rm -rf " + gitRepo)
+	statementStatus  = spcall('git clone https://github.com/PredixDev/' + gitRepo + '.git', shell=True)
 else:
 	print('For linux we assume you are on a DevBox and will place the app in /predix/Dropbox')
 	if os.path.exists("/predix/Dropbox/" + gitRepo):
-		statementStatus  = subprocess.call("rm -rf /predix/Dropbox/" + gitRepo, shell=True)
-	statementStatus  = subprocess.call('cd /predix/Dropbox; git clone https://github.com/PredixDev/' + gitRepo + '.git', shell=True)
-	result = subprocess.call('rm -rf ' + gitRepo,shell=True)
+		statementStatus  = spcall("rm -rf /predix/Dropbox/" + gitRepo, shell=True)
+	statementStatus  = spcall('cd /predix/Dropbox; git clone https://github.com/PredixDev/' + gitRepo + '.git', shell=True)
+	result = spcall('rm -rf ' + gitRepo,shell=True)
 # print("result="+result + " err="+err+"enderr", "exitcode=")
 # print(exitcode)
 if statementStatus == 1 :
@@ -209,11 +207,11 @@ print("Please push " + tutorialName + " to the cloud.  Give it a unique name or 
 print("e.g. enter:  cf push <my-unique-name>")
 choice = raw_input("$")
 if system == "Windows" :
-	statementStatus  = subprocess.call("cd " + gitRepo + " & " + choice, shell=True)
+	statementStatus  = spcall("cd " + gitRepo + " & " + choice, shell=True)
 elif system == "Darwin" :
-	statementStatus  = subprocess.call("cd " + gitRepo + ";" + choice, shell=True)
+	statementStatus  = spcall("cd " + gitRepo + ";" + choice, shell=True)
 else:
-	statementStatus  = subprocess.call("cd /predix/Dropbox/" + gitRepo + ";" + choice, shell=True)
+	statementStatus  = spcall("cd /predix/Dropbox/" + gitRepo + ";" + choice, shell=True)
 # print("result="+result + " err="+err+"enderr", "exitcode=")
 # print(exitcode)
 if statementStatus == 1 :
