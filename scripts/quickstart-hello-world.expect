@@ -1,0 +1,20 @@
+#!/usr/bin/expect
+
+set CF_SUFFIX [lindex $argv 0];
+
+set timeout 120
+spawn ./scripts/quickstart-hello-world.sh --skip-setup
+
+set timeout 5
+expect "Enter a unique string*"
+send "$CF_SUFFIX\r"
+expect "*Take a moment to study the contents of the manifest file.*"
+expect "Press any key *"
+send "\r"
+
+set timeout 180
+expect "*Step 4*"
+#expect "predix push"
+
+expect "*Step 5*"
+expect "*\$ "

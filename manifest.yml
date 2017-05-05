@@ -1,9 +1,10 @@
 ---
 #
-#  A basic hello world index.html file
-#  This application, and steps to deploy are described in full in the getting started guide on predix.io
+#  Manifest.yml for a basic hello world index.html file
+#  This application and steps to deploy are described in full in the getting started guide on predix.io
+#
 #  Step 1 is to change your application name, save, exit, and cf push
-#  Step 2 - After you have your application running you can bind to the services below as described on predix.io
+#  Step 2 - In later tutorials you will be shown how to **bind** to Predix services as described on predix.io
 
 applications:
   - name: Predix-HelloWorld-WebApp-YourAppName # Step 1: Change your application name
