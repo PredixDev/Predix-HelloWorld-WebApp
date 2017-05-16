@@ -13,8 +13,7 @@ expect "Press any key *"
 send "\r"
 
 set timeout 180
-expect "*Step 4*"
+expect "*Step 2*"
 #expect "predix push"
 
-expect "*Step 5*"
 expect "*\$ "
