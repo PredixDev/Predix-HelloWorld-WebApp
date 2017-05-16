@@ -3,6 +3,7 @@
 set CF_SUFFIX [lindex $argv 0];
 
 set timeout 120
+send ls -l scripts
 spawn ./scripts/quickstart-hello-world.sh --skip-setup
 
 set timeout 5
