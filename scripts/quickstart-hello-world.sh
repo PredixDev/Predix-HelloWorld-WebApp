@@ -46,6 +46,7 @@ VERSION_JSON="version.json"
 PREDIX_SCRIPTS=predix-scripts
 REPO_NAME=Predix-HelloWorld-WebApp
 VERSION_JSON="version.json"
+APP_DIR="predix-hello-world"
 APP_NAME="Predix Hello World"
 TOOLS="Cloud Foundry CLI, Git, Predix CLI"
 TOOLS_SWITCHES="--cf --git --predixcli"
@@ -75,6 +76,10 @@ function init() {
   if [[ $currentDir == *"scripts" ]]; then
     echo 'Please launch the script from the root dir of the project'
     exit 1
+  fi
+  if [[ ! $currentDir == *"$REPO_NAME" ]]; then
+    mkdir -p $APP_DIR
+    cd $APP_DIR
   fi
 
   check_internet
