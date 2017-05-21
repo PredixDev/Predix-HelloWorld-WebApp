@@ -3,6 +3,7 @@ set -e
 function local_read_args() {
   while (( "$#" )); do
   opt="$1"
+  echo "local_read_args $1"
   case $opt in
     -h|-\?|--\?--help)
       PRINT_USAGE=1

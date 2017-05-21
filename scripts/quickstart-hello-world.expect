@@ -3,7 +3,8 @@
 set CF_SUFFIX [lindex $argv 0];
 
 set timeout 120
-spawn ./scripts/quickstart-hello-world.sh --skip-setup
+send "echo $@"
+spawn ./scripts/quickstart-hello-world.sh --skip-setup {*}[lrange $argv 1 end]
 
 set timeout 5
 expect "Enter a unique string*"
