@@ -1,10 +1,10 @@
 {
   "name": "Predix Hello World Index.html",
-  "version": "1.1.16",
+  "version": "1.1.20",
   "private": true,
   "dependencies": {
     "local-setup": "https://github.com/PredixDev/local-setup#1.0.11",
-    "predix-scripts": "https://github.com/PredixDev/predix-scripts#1.1.10",
+    "predix-scripts": "https://github.com/PredixDev/predix-scripts#1.1.14",
     "Predix-HelloWorld-WebApp": "https://github.com/PredixDev/Predix-HelloWorld-WebApp#1.1.16"
   },
   "author": "turnerth"
