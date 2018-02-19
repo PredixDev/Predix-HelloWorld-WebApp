@@ -1,0 +1,20 @@
+---
+#
+#  Manifest.yml for a basic hello world index.html file
+#  This application and steps to deploy are described in full in the getting started guide on predix.io
+#
+#  Step 1 is to change your application name, save, exit, and cf push
+#  Step 2 - In later tutorials you will be shown how to **bind** to Predix services as described on predix.io
+
+applications:
+  - name: YourUniqueName-Predix-HelloWorld-WebApp # Step 1: Change your application name
+    buildpack: staticfile_buildpack 
+    memory: 256M
+
+    # Later, to Bind to services, uncomment the section below and enter the service name that you gave, e.g.
+    #services:
+    # - my_redis_instance # change this to your redis service instance name
+
+    # You may set environment variables that your code will read in, e.g.
+    #env:
+    #  MY_ENV_VARIABLE: my-value

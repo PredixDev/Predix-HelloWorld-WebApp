@@ -6,7 +6,7 @@ set timeout 120
 send "echo $@"
 spawn ./scripts/quickstart-hello-world.sh --skip-setup {*}[lrange $argv 1 end]
 
-set timeout 5
+set timeout 180
 expect "Enter a unique string*"
 send "$CF_SUFFIX\r"
 expect "*Take a moment to study the contents of the manifest file.*"
