@@ -89,6 +89,7 @@ function init() {
   eval "$(curl -s -L $IZON_SH)"
 
   getVersionFile
+  getProxyScripts
   getLocalSetupFuncs
 }
 
@@ -103,6 +104,7 @@ else
     __standard_mac_initialization
   fi
 fi
+
 
 getPredixScripts
 #clone the repo itself if running from oneclick script
