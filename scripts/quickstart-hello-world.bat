@@ -33,7 +33,7 @@ IF [!BRANCH!]==[] (
   EXIT /b 1
 )
 
-SET IZON_BAT=https://raw.githubusercontent.com/PredixDev/izon/!BRANCH!/izon.bat
+SET IZON_BAT=https://raw.githubusercontent.com/PredixDev/izon/1.2.0/izon.bat
 SET TUTORIAL=https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=1475^&tag^=1719^&journey^=Hello%%20World^&resources^=1475,1569,1523
 SET REPO_NAME=Predix-HelloWorld-WebApp
 SET SHELL_SCRIPT_NAME=quickstart-hello-world.sh
